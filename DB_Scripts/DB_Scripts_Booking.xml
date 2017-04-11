@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <DBO name="pbs_RE_BKG_{XXX}" type="U">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id=OBJECT_ID(N'dbo.[pbs_RE_BKG_{XXX}]'))
+      BEGIN
+      CREATE TABLE [dbo].[pbs_RE_BKG_{XXX}](
+      [LINE_NO] [int] IDENTITY(1,1) NOT NULL,
+      [BOOKING_TYPE] [varchar](15) NOT NULL,
+      [BOOKING_REF] [varchar](15) NOT NULL,
+      [BOOKING_DATE] [int] NOT NULL,
+      [PROJECT] [varchar](15) NOT NULL,
+      [BLOCK] [varchar](15) NOT NULL,
+      [FLOOR] [varchar](15) NOT NULL,
+      [BOOKED_BY] [varchar](15) NOT NULL,
+      [LEAD_ID] [int] NOT NULL,
+      [CANDIDATE_ID] [int] NOT NULL,
+      [CUSTOMER_CODE] [varchar](15) NOT NULL,
+      [UNIT_CODE] [varchar](15) NOT NULL,
+      [DESCRIPTION] [nvarchar](250) NOT NULL,
+      [DEPOSIT_AMOUNT] [decimal](18, 3) NOT NULL,
+      [CONV_CODE] [varchar](15) NOT NULL,
+      [CONV_RATE] [decimal](18, 9) NOT NULL,
+      [AMOUNT] [decimal](18, 3) NOT NULL,
+      [PAYMENT_REF] [nvarchar](50) NOT NULL,
+      [PAYMENT_METHOD] [varchar](15) NOT NULL,
+      [PAID_BY] [nvarchar](100) NOT NULL,
+      [NOTES] [nvarchar](250) NOT NULL,
+      [NC_BK0] [varchar](15) NOT NULL,
+      [NC_BK1] [varchar](15) NOT NULL,
+      [NC_BK2] [varchar](15) NOT NULL,
+      [NC_BK3] [varchar](15) NOT NULL,
+      [NC_BK4] [varchar](15) NOT NULL,
+      [NC_BK5] [varchar](15) NOT NULL,
+      [NC_BK6] [varchar](15) NOT NULL,
+      [NC_BK7] [varchar](15) NOT NULL,
+      [NC_BK8] [varchar](15) NOT NULL,
+      [NC_BK9] [varchar](15) NOT NULL,
+      [BPH_NO] [int] NOT NULL,
+      [PFD_NO] [int] NOT NULL,
+      [UPDATED_BY] [varchar](15) NOT NULL,
+      [UPDATED] [int] NOT NULL,
+      [TIME_STAMP] [timestamp] NULL,
+      CONSTRAINT [PK_pbs_RE_BKG_{XXX}] PRIMARY KEY CLUSTERED
+      (
+      [LINE_NO] ASC
+      )
+      )
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_RE_BKG_{XXX}_Insert" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[pbs_RE_BKG_{XXX}_Insert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [dbo].[pbs_RE_BKG_{XXX}_Insert]
+      @LINE_NO int output,
+      @BOOKING_TYPE varchar(15),
+      @BOOKING_REF varchar(15),
+      @BOOKING_DATE int,
+      @PROJECT varchar(15),
+      @BLOCK varchar(15),
+      @FLOOR varchar(15),
+      @BOOKED_BY varchar(15),
+      @LEAD_ID int,
+      @CANDIDATE_ID int,
+      @CUSTOMER_CODE varchar(15),
+      @UNIT_CODE varchar(15),
+      @DESCRIPTION nvarchar (250),
+      @DEPOSIT_AMOUNT decimal(18, 3),
+      @CONV_CODE varchar(15),
+      @CONV_RATE decimal(18, 9),
+      @AMOUNT decimal(18, 3),
+      @PAYMENT_REF nvarchar (50),
+      @PAYMENT_METHOD varchar(15),
+      @PAID_BY nvarchar (100),
+      @NOTES nvarchar (250),
+      @NC_BK0 varchar(15),
+      @NC_BK1 varchar(15),
+      @NC_BK2 varchar(15),
+      @NC_BK3 varchar(15),
+      @NC_BK4 varchar(15),
+      @NC_BK5 varchar(15),
+      @NC_BK6 varchar(15),
+      @NC_BK7 varchar(15),
+      @NC_BK8 varchar(15),
+      @NC_BK9 varchar(15),
+      @BPH_NO int,
+      @PFD_NO int,
+      @UPDATED_BY varchar(15),
+      @UPDATED int
+      AS
+
+      SET NOCOUNT ON
+      INSERT INTO [dbo].[pbs_RE_BKG_{XXX}] ([BOOKING_TYPE],
+      [BOOKING_REF],
+      [BOOKING_DATE],
+      [PROJECT],
+      [BLOCK],
+      [FLOOR],
+      [BOOKED_BY],
+      [LEAD_ID],
+      [CANDIDATE_ID],
+      [CUSTOMER_CODE],
+      [UNIT_CODE],
+      [DESCRIPTION],
+      [DEPOSIT_AMOUNT],
+      [CONV_CODE],
+      [CONV_RATE],
+      [AMOUNT],
+      [PAYMENT_REF],
+      [PAYMENT_METHOD],
+      [PAID_BY],
+      [NOTES],
+      [NC_BK0],
+      [NC_BK1],
+      [NC_BK2],
+      [NC_BK3],
+      [NC_BK4],
+      [NC_BK5],
+      [NC_BK6],
+      [NC_BK7],
+      [NC_BK8],
+      [NC_BK9],
+      [BPH_NO],
+      [PFD_NO],
+      [UPDATED_BY],
+      [UPDATED])
+      VALUES (@BOOKING_TYPE,
+      @BOOKING_REF,
+      @BOOKING_DATE,
+      @PROJECT,
+      @BLOCK,
+      @FLOOR,
+      @BOOKED_BY,
+      @LEAD_ID,
+      @CANDIDATE_ID,
+      @CUSTOMER_CODE,
+      @UNIT_CODE,
+      @DESCRIPTION,
+      @DEPOSIT_AMOUNT,
+      @CONV_CODE,
+      @CONV_RATE,
+      @AMOUNT,
+      @PAYMENT_REF,
+      @PAYMENT_METHOD,
+      @PAID_BY,
+      @NOTES,
+      @NC_BK0,
+      @NC_BK1,
+      @NC_BK2,
+      @NC_BK3,
+      @NC_BK4,
+      @NC_BK5,
+      @NC_BK6,
+      @NC_BK7,
+      @NC_BK8,
+      @NC_BK9,
+      @BPH_NO,
+      @PFD_NO,
+      @UPDATED_BY,
+      @UPDATED)
+
+      SET @LINE_NO = SCOPE_IDENTITY()
+
+      '
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_RE_BKG_{XXX}_Update" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[pbs_RE_BKG_{XXX}_Update]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [dbo].[pbs_RE_BKG_{XXX}_Update]
+      @LINE_NO int,
+      @BOOKING_TYPE varchar(15),
+      @BOOKING_REF varchar(15),
+      @BOOKING_DATE int,
+      @PROJECT varchar(15),
+      @BLOCK varchar(15),
+      @FLOOR varchar(15),
+      @BOOKED_BY varchar(15),
+      @LEAD_ID int,
+      @CANDIDATE_ID int,
+      @CUSTOMER_CODE varchar(15),
+      @UNIT_CODE varchar(15),
+      @DESCRIPTION nvarchar (250),
+      @DEPOSIT_AMOUNT decimal(18, 3),
+      @CONV_CODE varchar(15),
+      @CONV_RATE decimal(18, 9),
+      @AMOUNT decimal(18, 3),
+      @PAYMENT_REF nvarchar (50),
+      @PAYMENT_METHOD varchar(15),
+      @PAID_BY nvarchar (100),
+      @NOTES nvarchar (250),
+      @NC_BK0 varchar(15),
+      @NC_BK1 varchar(15),
+      @NC_BK2 varchar(15),
+      @NC_BK3 varchar(15),
+      @NC_BK4 varchar(15),
+      @NC_BK5 varchar(15),
+      @NC_BK6 varchar(15),
+      @NC_BK7 varchar(15),
+      @NC_BK8 varchar(15),
+      @NC_BK9 varchar(15),
+      @BPH_NO int,
+      @PFD_NO int,
+      @UPDATED_BY varchar(15),
+      @UPDATED int
+      AS
+
+      SET NOCOUNT ON
+      UPDATE [dbo].[pbs_RE_BKG_{XXX}] SET [BOOKING_TYPE] = @BOOKING_TYPE,
+      [BOOKING_REF] = @BOOKING_REF,
+      [BOOKING_DATE] = @BOOKING_DATE,
+      [PROJECT] = @PROJECT,
+      [BLOCK] = @BLOCK,
+      [FLOOR] = @FLOOR,
+      [BOOKED_BY] = @BOOKED_BY,
+      [LEAD_ID] = @LEAD_ID,
+      [CANDIDATE_ID] = @CANDIDATE_ID,
+      [CUSTOMER_CODE] = @CUSTOMER_CODE,
+      [UNIT_CODE] = @UNIT_CODE,
+      [DESCRIPTION] = @DESCRIPTION,
+      [DEPOSIT_AMOUNT] = @DEPOSIT_AMOUNT,
+      [CONV_CODE] = @CONV_CODE,
+      [CONV_RATE] = @CONV_RATE,
+      [AMOUNT] = @AMOUNT,
+      [PAYMENT_REF] = @PAYMENT_REF,
+      [PAYMENT_METHOD] = @PAYMENT_METHOD,
+      [PAID_BY] = @PAID_BY,
+      [NOTES] = @NOTES,
+      [NC_BK0] = @NC_BK0,
+      [NC_BK1] = @NC_BK1,
+      [NC_BK2] = @NC_BK2,
+      [NC_BK3] = @NC_BK3,
+      [NC_BK4] = @NC_BK4,
+      [NC_BK5] = @NC_BK5,
+      [NC_BK6] = @NC_BK6,
+      [NC_BK7] = @NC_BK7,
+      [NC_BK8] = @NC_BK8,
+      [NC_BK9] = @NC_BK9,
+      [BPH_NO] = @BPH_NO,
+      [PFD_NO] = @PFD_NO,
+      [UPDATED_BY] = @UPDATED_BY,
+      [UPDATED] = @UPDATED
+      WHERE [LINE_NO] = @LINE_NO
+      '
+      END
+    </Install>
+  </DBO>
+
+
+</Root>
